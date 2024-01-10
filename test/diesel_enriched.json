@@ -1,0 +1,73 @@
+{
+  "fqn": "s3://igor-textract-dev-ingestion/files/rc-any/Unknown/2023/7/6/AMA-Apr1_diesel.pdf",
+  "s3_arn": "s3://igor-textract-dev-ingestion/files/rc-any/Unknown/2023/7/6/AMA-Apr1_diesel.pdf",
+  "final_s3_location": "s3://igor-textract-dev-raw/files/diesel/year=2023/month=7/day=6/AMA_Apr1_diesel.pdf-extracted-document-analysis-forms.json",
+  "enable_textract": true,
+  "result_document_analysis_forms": "s3://igor-textract-dev-raw/files/rc_any/Unknown/2023/7/6/AMA_Apr1_diesel.pdf-extracted-document-analysis-forms.json",
+  "s3_bucket": "igor-textract-dev-ingestion",
+  "profile": "igor_textract_dev",
+  "status": "SUCCEEDED",
+  "result_document_analysis_tables": "s3://igor-textract-dev-raw/files/rc_any/Unknown/2023/7/6/AMA_Apr1_diesel.pdf-extracted-document-analysis-tables.json",
+  "file_type": "Unknown",
+  "result_document_analysis_multi": "s3://igor-textract-dev-raw/files/rc_any/Unknown/2023/7/6/AMA_Apr1_diesel.pdf-extracted-document-analysis-multi.json",
+  "document_match": "diesel",
+  "job_id": "93ebe46dc59c9e76435d7b1705781bbad3a8c0f226ae855c248bb15138af3f15",
+  "cdc_timestamp": "2023-07-06 14:52:05",
+  "dataset_name": "Unknown",
+  "job_name": "textract",
+  "key_value_pairs": {
+    "NO": "",
+    "Federal Environmental": "ENTERED Fee",
+    "YES": "",
+    "ADDRESS:": "",
+    "ACCOUNT NUMBER:": "",
+    "TOTAL INVOICE": "131102",
+    "INVOICE Crist Fuel": "068976 - -CF",
+    "Delivered By": "Derek",
+    "DATE": "04-19-2022",
+    "State Fuel Tax": "",
+    "State Sales Tax": "",
+    "CUSTOMER SIGN HERE": "",
+    "TERMS:": "",
+    "DELIVER TO:": "Po# 3600079068",
+    "SOLD TO:": "Kloeckner Metal"
+  },
+  "last_modified": "2023-07-06 14:52:05",
+  "s3_key": "files/rc-any/Unknown/2023/7/6/AMA-Apr1_diesel.pdf",
+  "job_status": "SUCCEEDED",
+  "enriched": {
+    "vendor_name": "Goodin Fuels Inc.",
+    "location": "Orem, UT",
+    "item_description": "labels: TBD",
+    "qty": [
+      {
+        "row_no": 2,
+        "value": "282"
+      },
+      {
+        "row_no": 3,
+        "value": "125"
+      }
+    ],
+    "type": "GAL",
+    "billing_period": "04-19-2022",
+    "item_full_description": [
+      {
+        "row_no": 0,
+        "value": "UN GASOLINE 1..."
+      },
+      {
+        "row_no": 1,
+        "value": "UN GASOLINE 2..."
+      },
+      {
+        "row_no": 2,
+        "value": "UN DIESEL 3..."
+      },
+      {
+        "row_no": 3,
+        "value": "UN KEROSENE 4..."
+      }
+    ]
+  }
+}

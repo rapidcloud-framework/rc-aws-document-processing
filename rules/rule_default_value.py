@@ -1,0 +1,21 @@
+__author__ = "Igor Royzis"
+__copyright__ = "Copyright 2023, Kinect Consulting"
+__license__ = "Commercial"
+__email__ = "iroyzis@kinect-consulting.com"
+
+import json
+import logging
+
+from rule import Rule
+
+
+class RuleImpl(Rule):
+
+    logger = logging.getLogger(__name__)
+
+    def __init__(self):
+        super().__init__()
+
+    def apply(self, dataset_info, rule_info, raw_data=None):
+        dataset_info["enriched"][rule_info["Name"]] = rule_info["Value"]
+        return dataset_info

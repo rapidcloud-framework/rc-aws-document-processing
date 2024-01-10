@@ -1,0 +1,74 @@
+{
+    "s3://igor-textract-dev-ingestion/files/rc-any/Unknown/2023/7/23/elec_sept__0048.pdf": {
+        'rule_resolve_month': [
+            {
+                "name": "Meter Read Dates",
+                "table_title": "METER READING INFORMATION",
+                "rule_value": "Read Dates:", # Mike rename to rule_value
+                "order": 10 # move to rule config json
+            },
+        ],
+        'rule_resolve_primary': [
+            {
+                "name": "Meter Number",
+                "merged_cell": True,
+                "table_title": "METER READING INFORMATION",
+                "selector": "METER", # Mike to move to rule_value
+                "order": 1
+            },
+        ],
+        'rule_grid_location_structured': [
+            {
+                "name": "Quantity",
+                "table_title": "METER READING INFORMATION", # optional
+                "column_name": "USAGE", # gal or pounds for godin, other keys below are ommitted for godin 
+                "row_selector_column": "DESCRIPTION", # TODO: if this is ommited then use first column
+                "row_selector_value": "Total Energy", # Mike to change to row_name
+                "multi": {
+                    "merged_cell": True,
+                    "selector": "METER"
+                },
+                "split_index": 1, # if not provided, return entire value. if provided, subtract 1 from it and get that index. 1 -> 2034, None -> 2034 kWh, 2 -> kWh. let's overload rule_value for this field
+            },
+        ],
+        "rule_default_value": [
+            {
+                "key": "Description", # name
+                "value": "Total Energy" # rule_value
+            },
+        ],
+        "rule_assume_value": [
+            {
+                "key": "Amount",
+                "value": "Quantity"
+            },
+            {
+                "key": "Meter Number",
+                "value": "Meter Number" # rule_value
+            }
+        ],
+    },
+    "s3://igor-textract-dev-ingestion/files/rc-any/Unknown/2023/7/23/AMA-Nov1_diesel__0017.pdf": {
+        "rule_labels": [
+            {
+                "name": "Fuel Type",
+                "options": [ # rule_value, comma sep
+                    "GASOLINE",
+                    "DIESEL",
+                    "KEROSENE",
+                    "NAPTHA"
+                ],
+                "column_name": "HAZARDOUS MATERIAL DESCRIPTION",
+                "if_column_is_populated": "GAL. OR POUNDS", # rule_value "if_column_is_populated":"a,b,c"
+                "order": 1
+                # GAL. OR POUNDS:GASOLINE,DIESEL,KEROSENE,NAPTHA
+            }
+        ],
+        'rule_grid_location_structured': [
+            {
+                "name": "Units",
+                "column_name": "GAL. OR POUNDS",
+            },
+        ],
+    }
+}
